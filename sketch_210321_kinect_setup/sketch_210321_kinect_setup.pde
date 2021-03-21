@@ -21,7 +21,7 @@ void draw() {
     for (int y = 0; y < img.height; y+=skip) {
       int index = x + y * img.width;
       float b = brightness(img.pixels[index]);
-      float z = map(b, 0, 255, 150, -150);
+      float z = map(b, 0, 255, 250, -250);
       fill(255-b);
       pushMatrix();
       translate(x, y, z);
