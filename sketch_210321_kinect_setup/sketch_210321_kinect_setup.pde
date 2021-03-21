@@ -25,7 +25,7 @@ void draw() {
       fill(255-b);
       pushMatrix();
       translate(x, y, z);
-      rect(0, 0, skip, skip);
+      rect(0, 0, skip/2, skip/2);
       popMatrix();
     }  
   }
