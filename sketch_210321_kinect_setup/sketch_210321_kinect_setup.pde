@@ -3,7 +3,7 @@ import org.openkinect.processing.*;
 Kinect kinect;
 
 void setup() {
-  size(512, 424);
+  size(640, 480);
   kinect = new Kinect(this);
   kinect.initDepth();
   //kinect.initDevice();
