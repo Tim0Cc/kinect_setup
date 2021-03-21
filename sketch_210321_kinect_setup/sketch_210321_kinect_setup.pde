@@ -15,10 +15,13 @@ void draw() {
   PImage img = kinect.getDepthImage();
   image(img, 0, 0);
   
-  for ( int x = 0; x < img.width; x++) {
-    for (int y = 0; y < img.height; y++) {
-      
-    }
-    
+  int skip = 10;
+  for (int x = 0; x < img.width; x+=skip) {
+    for (int y = 0; y < img.height; y+=skip) {
+      int index = x + y * img.width;
+      float b = brightness(img.pixels[index]);
+      fill(b);
+      rect(x,y,skip,skip);
+    }  
   }
 }
