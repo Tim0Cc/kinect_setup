@@ -14,15 +14,15 @@ void draw() {
   background(0);
   
   PImage img = kinect.getDepthImage();
-  image(img, 0, 0);
+  //image(img, 0, 0);
   
-  int skip = 10;
+  int skip = 20;
   for (int x = 0; x < img.width; x+=skip) {
     for (int y = 0; y < img.height; y+=skip) {
       int index = x + y * img.width;
       float b = brightness(img.pixels[index]);
-      float z = b;
-      fill(b);
+      float z = map(b, 0, 255, 150, -150);
+      fill(255-b);
       pushMatrix();
       translate(x, y, z);
       rect(0, 0, skip, skip);
