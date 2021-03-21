@@ -3,7 +3,8 @@ import org.openkinect.processing.*;
 Kinect kinect;
 
 void setup() {
-  size(640, 480);
+  frameRate(60);
+  size(640, 480, P3D);
   kinect = new Kinect(this);
   kinect.initDepth();
   //kinect.initDevice();
@@ -20,8 +21,12 @@ void draw() {
     for (int y = 0; y < img.height; y+=skip) {
       int index = x + y * img.width;
       float b = brightness(img.pixels[index]);
+      float z = b;
       fill(b);
-      rect(x,y,skip,skip);
+      pushMatrix();
+      translate(x, y, z);
+      rect(0, 0, skip, skip);
+      popMatrix();
     }  
   }
 }
